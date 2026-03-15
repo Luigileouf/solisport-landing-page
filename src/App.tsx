@@ -248,7 +248,7 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center max-w-3xl mx-auto mb-20">
             <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">Pourquoi choisir Solisport ?</h2>
-            <p className="text-lg text-black/50">Nous réinventons la seconde main pour qu'elle profite à ceux qui nous font rêver.</p>
+            <p className="text-lg text-black/50">Et si chaque vente de seconde main pouvait aider un sportif de haut niveau ?</p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
