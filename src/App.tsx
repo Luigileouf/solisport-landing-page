@@ -74,7 +74,7 @@ function SiteFooter() {
         </div>
         <div className="flex gap-6 text-sm font-medium text-black/60">
           <a href="/mentions-legales" className="hover:text-[#FF6B35]">Mentions légales</a>
-          <a href="mailto:lometivier@gmail.com" className="hover:text-[#FF6B35]">Confidentialité</a>
+          <a href="/confidentialite" className="hover:text-[#FF6B35]">Confidentialité</a>
         </div>
       </div>
     </footer>
@@ -184,6 +184,156 @@ function LegalPage() {
   );
 }
 
+function PrivacyPage() {
+  return (
+    <div className="min-h-screen bg-[#FDFCFB] text-[#1A1A1A] font-sans selection:bg-[#FF6B35] selection:text-white">
+      <SiteHeader isLegalPage />
+      <main className="pt-36 pb-24 px-6">
+        <div className="max-w-4xl mx-auto">
+          <div className="mb-16">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#FF6B35]/10 text-[#FF6B35] text-xs font-bold uppercase tracking-[0.2em] mb-6">
+              Données personnelles
+            </div>
+            <h1 className="text-5xl md:text-6xl font-bold tracking-tight mb-6">Politique de confidentialité</h1>
+            <p className="text-lg text-black/55 leading-relaxed max-w-2xl">
+              Cette page explique quelles données peuvent être collectées sur Solisport, pourquoi elles le
+              sont, combien de temps elles sont conservées et comment exercer vos droits.
+            </p>
+          </div>
+
+          <div className="space-y-10">
+            {[
+              {
+                title: '1. Qui traite vos données ?',
+                content: [
+                  'Les données personnelles collectées sur le site Solisport sont traitées par :',
+                  'Loïc Métivier',
+                  'Porteur du projet Solisport',
+                  'Adresse : 5 rue de la Vendée, 85120 Saint-Hilaire de Voust',
+                  'Email : lometivier@gmail.com',
+                  'Téléphone : 0613524886',
+                  'Le responsable du traitement est Loïc Métivier, en sa qualité d’éditeur du site et porteur du projet.',
+                ],
+              },
+              {
+                title: '2. Quelles données sont collectées ?',
+                content: [
+                  'Selon votre utilisation du site, Solisport peut collecter les données suivantes :',
+                  'votre adresse email ;',
+                  'votre profil déclaré via le formulaire, par exemple : vendeur de seconde main / non vendeur ;',
+                  'toute information transmise volontairement via un formulaire ou un échange ;',
+                  'les données techniques strictement nécessaires au fonctionnement du site.',
+                ],
+              },
+              {
+                title: '3. Pourquoi vos données sont-elles collectées ?',
+                content: [
+                  'Vos données sont collectées pour les finalités suivantes :',
+                  'gérer les inscriptions à la liste d’attente du projet Solisport ;',
+                  'vous recontacter au sujet du lancement du projet ;',
+                  'vous adresser des informations liées à l’évolution de Solisport, si vous y avez consenti ;',
+                  'répondre à vos demandes ;',
+                  'assurer la sécurité et le bon fonctionnement du site.',
+                ],
+              },
+              {
+                title: '4. Quelle est la base légale du traitement ?',
+                content: [
+                  'Le traitement de vos données repose :',
+                  'sur votre consentement, lorsque vous remplissez un formulaire pour rejoindre la liste d’attente ou recevoir des informations ;',
+                  'sur l’intérêt légitime de l’éditeur, lorsque cela est nécessaire pour assurer la sécurité du site, prévenir les abus ou répondre à une demande spontanée.',
+                ],
+              },
+              {
+                title: '5. Le caractère obligatoire ou facultatif des données',
+                content: [
+                  'Les champs identifiés comme obligatoires dans les formulaires sont nécessaires pour traiter votre demande.',
+                  'Si vous ne renseignez pas ces champs, Solisport pourrait ne pas être en mesure de vous recontacter ou de traiter correctement votre inscription.',
+                ],
+              },
+              {
+                title: '6. Qui peut accéder à vos données ?',
+                content: [
+                  'Les données collectées sont destinées uniquement :',
+                  'à Loïc Métivier, porteur du projet Solisport ;',
+                  'aux prestataires techniques strictement nécessaires au fonctionnement du site, de l’hébergement ou de l’outil de collecte d’emails ;',
+                  'le cas échéant, aux outils de gestion de la relation email et d’analyse d’audience utilisés par le site.',
+                  'Les données ne sont ni vendues ni cédées à des tiers à des fins commerciales sans votre accord.',
+                ],
+              },
+              {
+                title: '7. Combien de temps vos données sont-elles conservées ?',
+                content: [
+                  'Les données collectées via le formulaire sont conservées pendant une durée n’excédant pas celle nécessaire aux finalités pour lesquelles elles sont traitées.',
+                  'En pratique :',
+                  'les données liées aux demandes de contact peuvent être conservées jusqu’à 2 ans après le dernier contact ;',
+                  'les données de prospects ou de personnes inscrites pour être recontactées peuvent être conservées jusqu’à 3 ans à compter de la collecte ou du dernier contact émanant de la personne. Cette durée est cohérente avec les recommandations de la CNIL en matière de prospection.',
+                ],
+              },
+              {
+                title: '8. Vos droits',
+                content: [
+                  'Conformément à la réglementation applicable, vous disposez des droits suivants :',
+                  'droit d’accès à vos données ;',
+                  'droit de rectification ;',
+                  'droit à l’effacement ;',
+                  'droit à la limitation du traitement ;',
+                  'droit d’opposition, lorsque ce droit est applicable ;',
+                  'droit à la portabilité, lorsque ce droit est applicable ;',
+                  'droit de retirer votre consentement à tout moment lorsque le traitement repose sur ce consentement.',
+                  'Vous pouvez exercer vos droits en écrivant à : lometivier@gmail.com',
+                  'Si vous estimez, après nous avoir contactés, que vos droits ne sont pas respectés, vous pouvez adresser une réclamation à la CNIL.',
+                ],
+              },
+              {
+                title: '9. Transfert des données hors Union européenne',
+                content: [
+                  'Par principe, les données sont hébergées ou traitées au sein de l’Union européenne.',
+                  'Si certains outils utilisés impliquent un transfert hors Union européenne, Solisport s’engage à encadrer ce transfert conformément à la réglementation applicable et à en informer les personnes concernées.',
+                ],
+              },
+              {
+                title: '10. Cookies et traceurs',
+                content: [
+                  'Le site peut utiliser des cookies ou traceurs nécessaires à son fonctionnement.',
+                  'Si des cookies de mesure d’audience, de personnalisation ou publicitaires sont utilisés, une information claire et, lorsque la loi l’exige, votre consentement seront recueillis avant leur dépôt.',
+                ],
+              },
+              {
+                title: '11. Sécurité',
+                content: [
+                  'Solisport met en œuvre des mesures techniques et organisationnelles raisonnables pour protéger les données personnelles contre l’accès non autorisé, la perte, l’altération ou la divulgation.',
+                  'La CNIL recommande notamment une information claire, une page vie privée accessible et un parcours sécurisé, notamment en HTTPS.',
+                ],
+              },
+              {
+                title: '12. Mise à jour de la politique',
+                content: [
+                  'La présente politique de confidentialité peut être modifiée à tout moment pour tenir compte d’une évolution du site, du projet ou de la réglementation.',
+                  'La version en ligne est celle qui fait foi à la date de consultation.',
+                ],
+              },
+            ].map((section) => (
+              <section
+                key={section.title}
+                className="rounded-[32px] bg-white border border-black/5 shadow-sm p-8 md:p-10"
+              >
+                <h2 className="text-2xl md:text-3xl font-bold mb-5">{section.title}</h2>
+                <div className="space-y-3 text-black/65 leading-relaxed">
+                  {section.content.map((paragraph) => (
+                    <p key={paragraph}>{paragraph}</p>
+                  ))}
+                </div>
+              </section>
+            ))}
+          </div>
+        </div>
+      </main>
+      <SiteFooter />
+    </div>
+  );
+}
+
 const GOOGLE_SHEET_WEBHOOK_URL =
   import.meta.env.VITE_GOOGLE_SHEET_WEBHOOK_URL?.trim() ?? '';
 const GOOGLE_SHEET_IFRAME_NAME = 'solisport-google-sheet-target';
@@ -223,8 +373,9 @@ async function submitLeadToGoogleSheet(payload: LeadPayload) {
 }
 
 export default function App() {
-  const isLegalPage =
-    typeof window !== 'undefined' && window.location.pathname === '/mentions-legales';
+  const pathname = typeof window !== 'undefined' ? window.location.pathname : '/';
+  const isLegalPage = pathname === '/mentions-legales';
+  const isPrivacyPage = pathname === '/confidentialite';
   const [email, setEmail] = useState('');
   const [isSeller, setIsSeller] = useState<boolean | null>(null);
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
@@ -232,6 +383,10 @@ export default function App() {
 
   if (isLegalPage) {
     return <LegalPage />;
+  }
+
+  if (isPrivacyPage) {
+    return <PrivacyPage />;
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
