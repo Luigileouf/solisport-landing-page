@@ -382,11 +382,6 @@ export default function App() {
                 name: "Jade Maréchal",
                 sport: "Escrimeuse - Équipe de France",
                 img: "https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&q=80&w=600"
-              },
-              {
-                name: "Alice Recher",
-                sport: "Escrimeuse - Équipe de France",
-                img: "https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&q=80&w=600"
               }
             ].map((athlete, i) => (
               <div key={i} className="group relative aspect-[3/4] rounded-[32px] overflow-hidden shadow-xl">
@@ -406,6 +401,34 @@ export default function App() {
                 </div>
               </div>
             ))}
+
+            <div className="rounded-[32px] overflow-hidden shadow-xl bg-white border border-black/5">
+              <div className="relative w-full pt-[56.25%] overflow-hidden bg-black">
+                <iframe
+                  loading="lazy"
+                  className="absolute inset-0 h-full w-full border-0"
+                  src="https://www.canva.com/design/DAG_vKUvtm0/UEjBzcxDpVsYweQO2sMpQg/watch?embed"
+                  allowFullScreen
+                  allow="fullscreen"
+                  title="Alice Recher - video Canva"
+                />
+              </div>
+              <div className="p-6">
+                <div className="text-black/50 text-sm font-bold uppercase tracking-widest mb-2">
+                  Escrimeuse - Equipe de France
+                </div>
+                <div className="text-2xl font-bold mb-3">Alice Recher</div>
+                <a
+                  href="https://www.canva.com/design/DAG_vKUvtm0/UEjBzcxDpVsYweQO2sMpQg/watch?utm_content=DAG_vKUvtm0&utm_campaign=designshare&utm_medium=embeds&utm_source=link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-[#FF6B35] hover:text-black transition-colors"
+                >
+                  Voir la video complete
+                  <ArrowRight size={16} />
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </section>
