@@ -35,6 +35,155 @@ function SolisportLogo({ className }: { className?: string }) {
   );
 }
 
+function SiteHeader({ isLegalPage = false }: { isLegalPage?: boolean }) {
+  const prefix = isLegalPage ? '/' : '';
+  return (
+    <nav className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-black/5">
+      <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+        <a href="/" className="flex items-center gap-3">
+          <SolisportLogo className="w-12 h-12" />
+          <span className="text-xl font-bold tracking-tight">Solisport</span>
+        </a>
+        <div className="hidden md:flex items-center gap-8 text-sm font-medium text-black/60">
+          <a href={`${prefix}#concept`} className="hover:text-[#FF6B35] transition-colors">Concept</a>
+          <a href={`${prefix}#arguments`} className="hover:text-[#FF6B35] transition-colors">Avantages</a>
+          <a href={`${prefix}#mission`} className="hover:text-[#FF6B35] transition-colors">Notre Mission</a>
+          <a href={`${prefix}#athletes`} className="hover:text-[#FF6B35] transition-colors">Sportifs haut niveau</a>
+        </div>
+        <a
+          href={isLegalPage ? '/#join' : '#join'}
+          className="bg-black text-white px-6 py-2.5 rounded-full text-sm font-semibold hover:bg-[#FF6B35] transition-all duration-300 shadow-lg shadow-black/5"
+        >
+          Rejoindre
+        </a>
+      </div>
+    </nav>
+  );
+}
+
+function SiteFooter() {
+  return (
+    <footer className="py-12 border-t border-black/5">
+      <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
+        <a href="/" className="flex items-center gap-3">
+          <SolisportLogo className="w-10 h-10" />
+          <span className="text-lg font-bold tracking-tight">Solisport</span>
+        </a>
+        <div className="text-sm text-black/40">
+          © 2026 Solisport. Tous droits réservés.
+        </div>
+        <div className="flex gap-6 text-sm font-medium text-black/60">
+          <a href="/mentions-legales" className="hover:text-[#FF6B35]">Mentions légales</a>
+          <a href="mailto:lometivier@gmail.com" className="hover:text-[#FF6B35]">Confidentialité</a>
+        </div>
+      </div>
+    </footer>
+  );
+}
+
+function LegalPage() {
+  return (
+    <div className="min-h-screen bg-[#FDFCFB] text-[#1A1A1A] font-sans selection:bg-[#FF6B35] selection:text-white">
+      <SiteHeader isLegalPage />
+      <main className="pt-36 pb-24 px-6">
+        <div className="max-w-4xl mx-auto">
+          <div className="mb-16">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#FF6B35]/10 text-[#FF6B35] text-xs font-bold uppercase tracking-[0.2em] mb-6">
+              Informations légales
+            </div>
+            <h1 className="text-5xl md:text-6xl font-bold tracking-tight mb-6">Mentions légales</h1>
+            <p className="text-lg text-black/55 leading-relaxed max-w-2xl">
+              Retrouvez ici les informations relatives à l’éditeur du site, à l’hébergement, au nom de domaine
+              et aux règles applicables au contenu publié sur Solisport.
+            </p>
+          </div>
+
+          <div className="space-y-10">
+            {[
+              {
+                title: 'Éditeur du site',
+                content: [
+                  'Le présent site est édité par Loïc Métivier, porteur du projet Solisport.',
+                  'Statut : projet en cours de création, non encore constitué en société immatriculée.',
+                  'Adresse : 5 rue de la Vendée, 85120 Saint-Hilaire de Voust',
+                  'Email : lometivier@gmail.com',
+                  'Téléphone : 0613524886',
+                ],
+              },
+              {
+                title: 'Directeur de la publication',
+                content: ['Loïc Métivier'],
+              },
+              {
+                title: 'Hébergement',
+                content: [
+                  'Le site est hébergé par :',
+                  'Vercel Inc.',
+                  '440 N Barranca Ave #4133',
+                  'Covina, CA 91723',
+                  'United States',
+                  'Téléphone : +1 559 288 7060',
+                  'Site web : https://vercel.com',
+                ],
+              },
+              {
+                title: 'Nom de domaine',
+                content: [
+                  'Le nom de domaine est enregistré via :',
+                  'HOSTINGER operations, UAB',
+                  'Švitrigailos str. 34',
+                  'Vilnius 03230',
+                  'Lithuania',
+                  'Téléphone : +370 645 03378',
+                  'Site web : https://www.hostinger.com',
+                ],
+              },
+              {
+                title: 'Propriété intellectuelle',
+                content: [
+                  'L’ensemble des éléments présents sur ce site, notamment les textes, visuels, logos, illustrations, graphismes, icônes, vidéos, structure et mise en page, sauf mention contraire, est protégé par le droit de la propriété intellectuelle.',
+                  'Toute reproduction, représentation, diffusion, adaptation, modification ou exploitation, totale ou partielle, de tout ou partie du site, par quelque procédé que ce soit, sans autorisation écrite préalable, est interdite.',
+                ],
+              },
+              {
+                title: 'Responsabilité',
+                content: [
+                  'L’éditeur s’efforce de fournir sur ce site des informations aussi précises que possible. Toutefois, il ne pourra être tenu responsable des omissions, inexactitudes ou carences dans la mise à jour des informations, qu’elles soient de son fait ou du fait des tiers partenaires qui lui fournissent ces informations.',
+                ],
+              },
+              {
+                title: 'Liens hypertextes',
+                content: [
+                  'Le site peut contenir des liens vers d’autres sites. L’éditeur ne peut être tenu responsable du contenu, du fonctionnement ou des pratiques de ces sites tiers.',
+                ],
+              },
+              {
+                title: 'Contact',
+                content: [
+                  'Pour toute question concernant le site ou son contenu, vous pouvez écrire à : lometivier@gmail.com',
+                ],
+              },
+            ].map((section) => (
+              <section
+                key={section.title}
+                className="rounded-[32px] bg-white border border-black/5 shadow-sm p-8 md:p-10"
+              >
+                <h2 className="text-2xl md:text-3xl font-bold mb-5">{section.title}</h2>
+                <div className="space-y-3 text-black/65 leading-relaxed">
+                  {section.content.map((paragraph) => (
+                    <p key={paragraph}>{paragraph}</p>
+                  ))}
+                </div>
+              </section>
+            ))}
+          </div>
+        </div>
+      </main>
+      <SiteFooter />
+    </div>
+  );
+}
+
 const GOOGLE_SHEET_WEBHOOK_URL =
   import.meta.env.VITE_GOOGLE_SHEET_WEBHOOK_URL?.trim() ?? '';
 const GOOGLE_SHEET_IFRAME_NAME = 'solisport-google-sheet-target';
@@ -74,10 +223,16 @@ async function submitLeadToGoogleSheet(payload: LeadPayload) {
 }
 
 export default function App() {
+  const isLegalPage =
+    typeof window !== 'undefined' && window.location.pathname === '/mentions-legales';
   const [email, setEmail] = useState('');
   const [isSeller, setIsSeller] = useState<boolean | null>(null);
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
+
+  if (isLegalPage) {
+    return <LegalPage />;
+  }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -115,27 +270,7 @@ export default function App() {
         name={GOOGLE_SHEET_IFRAME_NAME}
         className="hidden"
       />
-      {/* Navigation */}
-      <nav className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-black/5">
-        <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <SolisportLogo className="w-12 h-12" />
-            <span className="text-xl font-bold tracking-tight">Solisport</span>
-          </div>
-          <div className="hidden md:flex items-center gap-8 text-sm font-medium text-black/60">
-            <a href="#concept" className="hover:text-[#FF6B35] transition-colors">Concept</a>
-            <a href="#arguments" className="hover:text-[#FF6B35] transition-colors">Avantages</a>
-            <a href="#mission" className="hover:text-[#FF6B35] transition-colors">Notre Mission</a>
-            <a href="#athletes" className="hover:text-[#FF6B35] transition-colors">Sportifs haut niveau</a>
-          </div>
-          <a 
-            href="#join" 
-            className="bg-black text-white px-6 py-2.5 rounded-full text-sm font-semibold hover:bg-[#FF6B35] transition-all duration-300 shadow-lg shadow-black/5"
-          >
-            Rejoindre
-          </a>
-        </div>
-      </nav>
+      <SiteHeader />
 
       {/* Hero Section */}
       <section className="pt-40 pb-20 px-6">
@@ -623,22 +758,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="py-12 border-t border-black/5">
-        <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
-          <div className="flex items-center gap-3">
-            <SolisportLogo className="w-10 h-10" />
-            <span className="text-lg font-bold tracking-tight">Solisport</span>
-          </div>
-          <div className="text-sm text-black/40">
-            © 2026 Solisport. Tous droits réservés.
-          </div>
-          <div className="flex gap-6 text-sm font-medium text-black/60">
-            <a href="#" className="hover:text-[#FF6B35]">Mentions légales</a>
-            <a href="#" className="hover:text-[#FF6B35]">Confidentialité</a>
-          </div>
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }
