@@ -470,6 +470,29 @@ export default function App() {
                 </button>
               </div>
             </form>
+
+            <AnimatePresence>
+              {status === 'success' && (
+                <motion.p
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0 }}
+                  className="mt-6 text-white font-medium flex items-center justify-center gap-2"
+                >
+                  <CheckCircle2 size={18} /> L'equipe de Solisport vous remercie. Nous avons bien recu votre email :)
+                </motion.p>
+              )}
+              {status === 'error' && (
+                <motion.p
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0 }}
+                  className="mt-6 text-white font-medium"
+                >
+                  {errorMessage}
+                </motion.p>
+              )}
+            </AnimatePresence>
           </div>
         </div>
       </section>
