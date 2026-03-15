@@ -205,7 +205,7 @@ export default function App() {
                   exit={{ opacity: 0 }}
                   className="mt-4 text-emerald-600 font-medium flex items-center gap-2"
                 >
-                  <CheckCircle2 size={18} /> Merci ! Vous etes bien inscrit a la liste Solisport.
+                  <CheckCircle2 size={18} /> L'equipe de Solisport vous remercie. Nous avons bien recu votre email :)
                 </motion.p>
               )}
               {status === 'error' && (
