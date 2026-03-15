@@ -283,6 +283,86 @@ export default function App() {
         </div>
       </section>
 
+      {/* Don = Cadeau Section */}
+      <section className="py-32 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-12 items-start">
+            <div>
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#FF6B35]/10 text-[#FF6B35] text-xs font-bold uppercase tracking-[0.2em] mb-6">
+                Sur Solisport
+              </div>
+              <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">
+                Un don = un cadeau
+              </h2>
+              <div className="space-y-4 text-lg text-black/60 leading-relaxed max-w-2xl">
+                <p>
+                  Avec Solisport, une vente de seconde main peut aussi générer un don.
+                </p>
+                <p>
+                  Ce don est transformé en points Solisport pour le vendeur et pour l’acheteur.
+                </p>
+                <p>
+                  Ces points permettent d’obtenir des réductions, des cadeaux ou des avantages chez les partenaires.
+                </p>
+              </div>
+
+              <div className="grid sm:grid-cols-3 gap-4 mt-10">
+                {[
+                  {
+                    step: "01",
+                    title: "Une vente déclenche un don",
+                    desc: "Une partie de la transaction peut soutenir un sportif accompagné par Solisport.",
+                  },
+                  {
+                    step: "02",
+                    title: "Le don devient des points",
+                    desc: "Les points Solisport sont partagés entre vendeur et acheteur.",
+                  },
+                  {
+                    step: "03",
+                    title: "Les points deviennent un avantage",
+                    desc: "Réductions, cadeaux ou bénéfices concrets chez les partenaires.",
+                  },
+                ].map((item) => (
+                  <div
+                    key={item.step}
+                    className="rounded-[28px] border border-black/5 bg-[#FDFCFB] p-6 shadow-sm"
+                  >
+                    <div className="text-[#FF6B35] text-sm font-bold uppercase tracking-[0.2em] mb-4">
+                      {item.step}
+                    </div>
+                    <h3 className="text-xl font-bold mb-3 leading-tight">{item.title}</h3>
+                    <p className="text-sm text-black/55 leading-relaxed">{item.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="rounded-[36px] bg-[#111111] text-white p-8 md:p-10 shadow-2xl shadow-black/10">
+              <div className="text-[#FF6B35] font-bold text-sm uppercase tracking-[0.25em] mb-4">
+                Exemple
+              </div>
+              <div className="space-y-4">
+                <div className="rounded-[28px] bg-white/5 border border-white/10 p-6">
+                  <div className="text-white/60 text-sm uppercase tracking-[0.2em] mb-2">Don</div>
+                  <div className="text-4xl font-bold">10 €</div>
+                </div>
+                <div className="rounded-[28px] bg-white/5 border border-white/10 p-6">
+                  <div className="text-white/60 text-sm uppercase tracking-[0.2em] mb-2">Points Solisport</div>
+                  <div className="text-4xl font-bold">20 points</div>
+                  <div className="mt-3 text-white/65">10 points vendeur + 10 points acheteur</div>
+                </div>
+                <div className="rounded-[28px] bg-[#FF6B35] text-white p-6">
+                  <div className="text-white/75 text-sm uppercase tracking-[0.2em] mb-2">Avantage partenaire</div>
+                  <div className="text-3xl font-bold">5 € de remise</div>
+                  <div className="mt-3 text-white/85">sur la billetterie Fnac</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Mission Section */}
       <section id="mission" className="py-32 bg-black text-white overflow-hidden relative">
         <div className="absolute top-0 right-0 w-1/2 h-full opacity-20 pointer-events-none">
