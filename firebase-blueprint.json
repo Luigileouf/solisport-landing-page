@@ -1,0 +1,36 @@
+{
+  "entities": {
+    "leads": {
+      "title": "Leads",
+      "description": "Emails collected from the landing page",
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string",
+          "format": "email",
+          "description": "User's email address"
+        },
+        "isSeller": {
+          "type": "boolean",
+          "description": "Whether the user is a second-hand seller"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp of collection"
+        },
+        "source": {
+          "type": "string",
+          "description": "Source of the lead (e.g., landing-page)"
+        }
+      },
+      "required": ["email", "isSeller", "createdAt"]
+    }
+  },
+  "firestore": {
+    "leads": {
+      "schema": "leads",
+      "description": "Collection of landing page leads"
+    }
+  }
+}

@@ -1,0 +1,37 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // ===============================================================
+    // Assumed Data Model
+    // ===============================================================
+    //
+    // Collection: leads
+    // Fields:
+    //   - email: string (required, email format)
+    //   - createdAt: timestamp (required)
+    //   - source: string (optional)
+    //
+    // ===============================================================
+
+    // Helper Functions
+    function isValidEmail(email) {
+      return email is string && email.matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$");
+    }
+
+    function isValidLead(data) {
+      return data.keys().hasAll(['email', 'isSeller', 'createdAt']) &&
+             data.keys().hasOnly(['email', 'isSeller', 'createdAt', 'source']) &&
+             isValidEmail(data.email) &&
+             data.isSeller is bool &&
+             data.createdAt is timestamp &&
+             (data.source == null || data.source is string);
+    }
+
+    match /leads/{leadId} {
+      // Allow anyone to create a lead, but no one to read/update/delete
+      // This is a "blind drop" for security
+      allow create: if isValidLead(request.resource.data);
+      allow read, update, delete: if false;
+    }
+  }
+}
