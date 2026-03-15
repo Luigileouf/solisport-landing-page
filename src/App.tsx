@@ -236,7 +236,7 @@ export default function App() {
             </div>
             <div className="absolute -bottom-10 -left-10 bg-white p-6 rounded-3xl shadow-2xl border border-black/5 max-w-sm -rotate-3">
               <p className="text-base text-black/70 italic leading-relaxed">
-                "Grace a Solisport, j'ai pu financer mon prochain stage de preparation haut niveau en equipe de France"
+                "Grâce à Solisport, j'ai pu financer mon prochain stage de préparation de haut niveau en équipe de France."
               </p>
             </div>
           </motion.div>
