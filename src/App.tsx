@@ -234,17 +234,10 @@ export default function App() {
                 referrerPolicy="no-referrer"
               />
             </div>
-            <div className="absolute -bottom-10 -left-10 bg-white p-6 rounded-3xl shadow-2xl border border-black/5 max-w-xs -rotate-3">
-              <div className="flex items-center gap-4 mb-3">
-                <div className="w-12 h-12 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600">
-                  <TrendingUp size={24} />
-                </div>
-                <div>
-                  <div className="text-2xl font-bold">+24%</div>
-                  <div className="text-xs text-black/40 uppercase font-bold tracking-widest">Ventes moyennes</div>
-                </div>
-              </div>
-              <p className="text-sm text-black/60 italic">"Grâce à Solisport, j'ai pu financer mon prochain stage de préparation."</p>
+            <div className="absolute -bottom-10 -left-10 bg-white p-6 rounded-3xl shadow-2xl border border-black/5 max-w-sm -rotate-3">
+              <p className="text-base text-black/70 italic leading-relaxed">
+                "Grace a Solisport, j'ai pu financer mon prochain stage de preparation haut niveau en equipe de France"
+              </p>
             </div>
           </motion.div>
         </div>
