@@ -294,7 +294,7 @@ export default function App() {
             <div>
               <h2 className="text-5xl md:text-6xl font-bold leading-tight mb-8">
                 Le sport de haut niveau <br />
-                <span className="text-[#FF6B35]">mérite d'être soutenu.</span>
+                <span className="text-[#FF6B35]">mérite plus de soutien.</span>
               </h2>
               <div className="space-y-8">
                 <div className="flex gap-6">
@@ -302,8 +302,11 @@ export default function App() {
                     <Users className="text-[#FF6B35]" size={24} />
                   </div>
                   <div>
-                    <h4 className="text-xl font-bold mb-2">Peu de médiatisation</h4>
-                    <p className="text-white/50">La majorité des athlètes n'attirent pas assez de sponsors malgré leurs exploits.</p>
+                    <h4 className="text-xl font-bold mb-2">Mission</h4>
+                    <p className="text-white/50">
+                      Solisport soutient les sportifs de haut niveau peu médiatisés, trop souvent laissés de côté faute de visibilité.
+                      Dans un contexte de baisse des subventions et de tensions économiques, accéder au sponsoring devient un véritable parcours d’obstacles.
+                    </p>
                   </div>
                 </div>
                 <div className="flex gap-6">
@@ -311,8 +314,11 @@ export default function App() {
                     <Heart className="text-[#FF6B35]" size={24} />
                   </div>
                   <div>
-                    <h4 className="text-xl font-bold mb-2">Ils nous font vibrer</h4>
-                    <p className="text-white/50">Sans eux, pas d'exploits. Ils méritent un soutien financier pour leurs déplacements et matériel.</p>
+                    <h4 className="text-xl font-bold mb-2">Valeur</h4>
+                    <p className="text-white/50">
+                      Solisport défend une vision solidaire du sport. En tant qu’entreprise à mission relevant de l’économie sociale
+                      et solidaire, la plateforme reverse 70 % des revenus générés aux sportifs qu’elle accompagne.
+                    </p>
                   </div>
                 </div>
                 <div className="flex gap-6">
@@ -320,8 +326,11 @@ export default function App() {
                     <TrendingUp className="text-[#FF6B35]" size={24} />
                   </div>
                   <div>
-                    <h4 className="text-xl font-bold mb-2">Points Solisport</h4>
-                    <p className="text-white/50">Chaque don est valorisé en points valables chez nos partenaires (Fnac, billetterie, etc.).</p>
+                    <h4 className="text-xl font-bold mb-2">Vision</h4>
+                    <p className="text-white/50">
+                      Solisport veut devenir un acteur de référence du soutien aux sportifs de haut niveau peu médiatisés, avec un
+                      modèle solidaire, durable et innovant capable de couvrir, dans la durée, l’ensemble de leurs besoins financiers.
+                    </p>
                   </div>
                 </div>
               </div>
@@ -329,22 +338,22 @@ export default function App() {
 
             <div className="bg-white/5 backdrop-blur-xl p-8 rounded-[40px] border border-white/10">
               <div className="text-center mb-10">
-                <div className="text-[#FF6B35] font-bold text-sm uppercase tracking-widest mb-2">Exemple concret</div>
-                <div className="text-4xl font-bold">10€ de don = 20 pts</div>
+                <div className="text-[#FF6B35] font-bold text-sm uppercase tracking-widest mb-2">Notre engagement</div>
+                <div className="text-4xl font-bold">70 % des revenus générés reversés aux sportifs accompagnés</div>
               </div>
               <div className="space-y-4">
                 <div className="flex justify-between items-center p-4 rounded-2xl bg-white/5 border border-white/5">
-                  <span className="text-white/60">Points Vendeur</span>
-                  <span className="font-bold text-[#FF6B35]">+10 pts</span>
+                  <span className="text-white/60">Entreprise à mission</span>
+                  <span className="font-bold text-[#FF6B35]">Impact social</span>
                 </div>
                 <div className="flex justify-between items-center p-4 rounded-2xl bg-white/5 border border-white/5">
-                  <span className="text-white/60">Points Acheteur</span>
-                  <span className="font-bold text-[#FF6B35]">+10 pts</span>
+                  <span className="text-white/60">Économie sociale et solidaire</span>
+                  <span className="font-bold text-[#FF6B35]">Utilité concrète</span>
                 </div>
                 <div className="pt-4 border-t border-white/10">
                   <div className="flex items-center gap-3 text-sm text-white/40">
                     <CheckCircle2 size={16} className="text-emerald-500" />
-                    <span>Valable sur la billetterie Fnac</span>
+                    <span>Objectif : obtenir le label ESUS et bâtir un soutien durable pour les athlètes.</span>
                   </div>
                 </div>
               </div>
