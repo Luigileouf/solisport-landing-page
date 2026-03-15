@@ -126,6 +126,7 @@ export default function App() {
             <a href="#concept" className="hover:text-[#FF6B35] transition-colors">Concept</a>
             <a href="#arguments" className="hover:text-[#FF6B35] transition-colors">Avantages</a>
             <a href="#mission" className="hover:text-[#FF6B35] transition-colors">Notre Mission</a>
+            <a href="#athletes" className="hover:text-[#FF6B35] transition-colors">Sportifs haut niveau</a>
           </div>
           <a 
             href="#join" 
@@ -454,7 +455,7 @@ export default function App() {
       </section>
 
       {/* Social Proof / Athletes */}
-      <section className="py-32 bg-[#FDFCFB]">
+      <section id="athletes" className="py-32 bg-[#FDFCFB]">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
             <div className="max-w-2xl">
