@@ -256,17 +256,17 @@ export default function App() {
               {
                 icon: <ShieldCheck className="text-[#FF6B35]" size={32} />,
                 title: "Garantir l'état de l'objet",
-                desc: "Fini les mauvaises surprises. Notre option 'Tiers de Confiance' vérifie l'état réel de chaque objet avant l'envoi."
+                desc: "Fini les mauvaises surprises pour vos acheteurs. Notre option 'Tiers de Confiance' vérifie l'état réel de chaque objet avant l'envoi."
               },
               {
                 icon: <TrendingUp className="text-[#FF6B35]" size={32} />,
                 title: "Gagnez plus d'argent",
-                desc: "Nous vous mettons en relation avec des particuliers qui n'ont pas le temps de vendre. Devenez leur vendeur expert."
+                desc: "Nous vous mettons en relation avec des particuliers qui n'ont pas le temps de vendre leurs objets. Vendez pour eux et partagez les gains."
               },
               {
                 icon: <Zap className="text-[#FF6B35]" size={32} />,
                 title: "Vendre efficacement",
-                desc: "Apprenez des meilleurs. Nos vendeurs expérimentés accompagnent les novices pour booster leurs performances sur Vinted."
+                desc: "Apprenez aux autres. Nos vendeurs expérimentés accompagnent les novices pour booster leurs performances sur Vinted. Devenez coach pour les vendeurs novices."
               }
             ].map((item, i) => (
               <motion.div 
