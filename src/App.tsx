@@ -19,6 +19,7 @@ import {
 } from 'lucide-react';
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
+import solisportLogo from './assets/solisport-logo.png';
 
 function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -26,44 +27,11 @@ function cn(...inputs: ClassValue[]) {
 
 function SolisportLogo({ className }: { className?: string }) {
   return (
-    <svg
-      viewBox="0 0 120 120"
-      className={cn("shrink-0", className)}
-      role="img"
-      aria-label="Logo Solisport"
-    >
-      <circle cx="60" cy="60" r="57" fill="white" stroke="#111111" strokeWidth="4" />
-      <circle cx="60" cy="60" r="39" fill="#10C469" />
-      <circle cx="39" cy="29" r="3.5" fill="none" stroke="#FF3B30" strokeWidth="2" />
-      <circle cx="49.5" cy="26.5" r="3.5" fill="none" stroke="#22C55E" strokeWidth="2" />
-      <circle cx="60" cy="25" r="3.5" fill="none" stroke="#111111" strokeWidth="2" />
-      <circle cx="70.5" cy="26.5" r="3.5" fill="none" stroke="#FDBA4A" strokeWidth="2" />
-      <circle cx="81" cy="29" r="3.5" fill="none" stroke="#4338CA" strokeWidth="2" />
-      <text
-        x="60"
-        y="55"
-        textAnchor="middle"
-        fontSize="18"
-        fontWeight="900"
-        fill="white"
-        fontFamily="Arial, sans-serif"
-        letterSpacing="1.5"
-      >
-        SOLI
-      </text>
-      <text
-        x="60"
-        y="76"
-        textAnchor="middle"
-        fontSize="18"
-        fontWeight="900"
-        fill="white"
-        fontFamily="Arial, sans-serif"
-        letterSpacing="1.5"
-      >
-        SPORT
-      </text>
-    </svg>
+    <img
+      src={solisportLogo}
+      alt="Logo Solisport"
+      className={cn("shrink-0 object-contain", className)}
+    />
   );
 }
 
