@@ -24,6 +24,49 @@ function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
+function SolisportLogo({ className }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 120 120"
+      className={cn("shrink-0", className)}
+      role="img"
+      aria-label="Logo Solisport"
+    >
+      <circle cx="60" cy="60" r="57" fill="white" stroke="#111111" strokeWidth="4" />
+      <circle cx="60" cy="60" r="39" fill="#10C469" />
+      <circle cx="39" cy="29" r="3.5" fill="none" stroke="#FF3B30" strokeWidth="2" />
+      <circle cx="49.5" cy="26.5" r="3.5" fill="none" stroke="#22C55E" strokeWidth="2" />
+      <circle cx="60" cy="25" r="3.5" fill="none" stroke="#111111" strokeWidth="2" />
+      <circle cx="70.5" cy="26.5" r="3.5" fill="none" stroke="#FDBA4A" strokeWidth="2" />
+      <circle cx="81" cy="29" r="3.5" fill="none" stroke="#4338CA" strokeWidth="2" />
+      <text
+        x="60"
+        y="55"
+        textAnchor="middle"
+        fontSize="18"
+        fontWeight="900"
+        fill="white"
+        fontFamily="Arial, sans-serif"
+        letterSpacing="1.5"
+      >
+        SOLI
+      </text>
+      <text
+        x="60"
+        y="76"
+        textAnchor="middle"
+        fontSize="18"
+        fontWeight="900"
+        fill="white"
+        fontFamily="Arial, sans-serif"
+        letterSpacing="1.5"
+      >
+        SPORT
+      </text>
+    </svg>
+  );
+}
+
 const GOOGLE_SHEET_WEBHOOK_URL =
   import.meta.env.VITE_GOOGLE_SHEET_WEBHOOK_URL?.trim() ?? '';
 const GOOGLE_SHEET_IFRAME_NAME = 'solisport-google-sheet-target';
@@ -107,8 +150,8 @@ export default function App() {
       {/* Navigation */}
       <nav className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-black/5">
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className="w-10 h-10 bg-[#FF6B35] rounded-xl flex items-center justify-center text-white font-bold text-xl">S</div>
+          <div className="flex items-center gap-3">
+            <SolisportLogo className="w-12 h-12" />
             <span className="text-xl font-bold tracking-tight">Solisport</span>
           </div>
           <div className="hidden md:flex items-center gap-8 text-sm font-medium text-black/60">
@@ -614,8 +657,8 @@ export default function App() {
       {/* Footer */}
       <footer className="py-12 border-t border-black/5">
         <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-[#FF6B35] rounded-lg flex items-center justify-center text-white font-bold text-lg">S</div>
+          <div className="flex items-center gap-3">
+            <SolisportLogo className="w-10 h-10" />
             <span className="text-lg font-bold tracking-tight">Solisport</span>
           </div>
           <div className="text-sm text-black/40">
