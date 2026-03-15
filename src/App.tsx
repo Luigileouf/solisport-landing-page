@@ -15,8 +15,7 @@ import {
   ChevronRight, 
   CheckCircle2, 
   Mail,
-  ArrowRight,
-  Play
+  ArrowRight
 } from 'lucide-react';
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
@@ -375,60 +374,70 @@ export default function App() {
             {[
               {
                 name: "Yannick Matejicek",
-                sport: "Triathlète",
-                img: "https://images.unsplash.com/photo-1530549387631-fbb129c1b027?auto=format&fit=crop&q=80&w=600"
+                sport: "Triathlete",
+                eyebrow: "Video portrait",
+                embedSrc: "https://www.canva.com/design/DAG-tcOM1yg/hjXuXImqnimGwBd-LuB-TQ/watch?embed",
+                watchHref:
+                  "https://www.canva.com/design/DAG-tcOM1yg/hjXuXImqnimGwBd-LuB-TQ/watch?utm_content=DAG-tcOM1yg&utm_campaign=designshare&utm_medium=embeds&utm_source=link",
               },
               {
-                name: "Jade Maréchal",
-                sport: "Escrimeuse - Équipe de France",
-                img: "https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&q=80&w=600"
+                name: "Jade Marechal",
+                sport: "Escrimeuse - Equipe de France",
+                eyebrow: "Video portrait",
+                embedSrc: "https://www.canva.com/design/DAG-soE0I-Y/DFPEX5LDrndSo8lMAgcoog/watch?embed",
+                watchHref:
+                  "https://www.canva.com/design/DAG-soE0I-Y/DFPEX5LDrndSo8lMAgcoog/watch?utm_content=DAG-soE0I-Y&utm_campaign=designshare&utm_medium=embeds&utm_source=link",
+              },
+              {
+                name: "Alice Recher",
+                sport: "Escrimeuse - Equipe de France",
+                eyebrow: "Video portrait",
+                embedSrc: "https://www.canva.com/design/DAG_vKUvtm0/UEjBzcxDpVsYweQO2sMpQg/watch?embed",
+                watchHref:
+                  "https://www.canva.com/design/DAG_vKUvtm0/UEjBzcxDpVsYweQO2sMpQg/watch?utm_content=DAG_vKUvtm0&utm_campaign=designshare&utm_medium=embeds&utm_source=link",
               }
-            ].map((athlete, i) => (
-              <div key={i} className="group relative aspect-[3/4] rounded-[32px] overflow-hidden shadow-xl">
-                <img 
-                  src={athlete.img} 
-                  alt={athlete.name} 
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  referrerPolicy="no-referrer"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-                <div className="absolute bottom-8 left-8 right-8">
-                  <div className="text-white/60 text-sm font-bold uppercase tracking-widest mb-1">{athlete.sport}</div>
-                  <div className="text-white text-2xl font-bold mb-4">{athlete.name}</div>
-                  <button className="w-12 h-12 rounded-full bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center text-white hover:bg-[#FF6B35] transition-colors">
-                    <Play size={20} fill="currentColor" />
-                  </button>
+            ].map((athlete) => (
+              <div
+                key={athlete.name}
+                className="rounded-[32px] overflow-hidden shadow-xl bg-white border border-black/5"
+              >
+                <div className="bg-gradient-to-br from-[#1A1A1A] via-[#2A2A2A] to-[#FF6B35] p-5 text-white">
+                  <div className="text-white/60 text-xs font-bold uppercase tracking-[0.25em] mb-2">
+                    {athlete.eyebrow}
+                  </div>
+                  <div className="text-2xl font-bold mb-1">{athlete.name}</div>
+                  <div className="text-white/70 text-sm">{athlete.sport}</div>
+                </div>
+
+                <div className="p-4">
+                  <div className="relative w-full pt-[56.25%] overflow-hidden bg-black rounded-[24px] shadow-lg">
+                    <iframe
+                      loading="lazy"
+                      className="absolute inset-0 h-full w-full border-0"
+                      src={athlete.embedSrc}
+                      allowFullScreen
+                      allow="fullscreen"
+                      title={`${athlete.name} - video Canva`}
+                    />
+                  </div>
+                </div>
+
+                <div className="px-6 pb-6">
+                  <p className="text-black/55 text-sm leading-relaxed mb-4">
+                    Decouvrez son parcours et l'energie qui porte Solisport sur le terrain.
+                  </p>
+                  <a
+                    href={athlete.watchHref}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-sm font-semibold text-[#FF6B35] hover:text-black transition-colors"
+                  >
+                    Voir la video complete
+                    <ArrowRight size={16} />
+                  </a>
                 </div>
               </div>
             ))}
-
-            <div className="rounded-[32px] overflow-hidden shadow-xl bg-white border border-black/5">
-              <div className="relative w-full pt-[56.25%] overflow-hidden bg-black">
-                <iframe
-                  loading="lazy"
-                  className="absolute inset-0 h-full w-full border-0"
-                  src="https://www.canva.com/design/DAG_vKUvtm0/UEjBzcxDpVsYweQO2sMpQg/watch?embed"
-                  allowFullScreen
-                  allow="fullscreen"
-                  title="Alice Recher - video Canva"
-                />
-              </div>
-              <div className="p-6">
-                <div className="text-black/50 text-sm font-bold uppercase tracking-widest mb-2">
-                  Escrimeuse - Equipe de France
-                </div>
-                <div className="text-2xl font-bold mb-3">Alice Recher</div>
-                <a
-                  href="https://www.canva.com/design/DAG_vKUvtm0/UEjBzcxDpVsYweQO2sMpQg/watch?utm_content=DAG_vKUvtm0&utm_campaign=designshare&utm_medium=embeds&utm_source=link"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-sm font-semibold text-[#FF6B35] hover:text-black transition-colors"
-                >
-                  Voir la video complete
-                  <ArrowRight size={16} />
-                </a>
-              </div>
-            </div>
           </div>
         </div>
       </section>
