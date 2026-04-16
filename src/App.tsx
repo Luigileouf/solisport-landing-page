@@ -598,7 +598,7 @@ export default function App() {
               </h2>
               <div className="space-y-4 text-lg text-black/60 leading-relaxed max-w-2xl">
                 <p>
-                  Avec Solisport, une vente de seconde main peut aussi générer un don.
+                  Avec Solisport, une vente sur une plateforme de seconde main comme Vinted, Le Bon Coin... peut aussi générer un don.
                 </p>
                 <p>
                   Ce don est transformé en points Solisport pour le vendeur et pour l’acheteur.
