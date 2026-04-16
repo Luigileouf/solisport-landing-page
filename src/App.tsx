@@ -667,6 +667,7 @@ export default function App() {
                   <div className="text-white/75 text-sm uppercase tracking-[0.2em] mb-2">Avantage partenaire</div>
                   <div className="text-3xl font-bold">5 € de remise</div>
                   <div className="mt-3 text-white/85">sur la billetterie Fnac</div>
+                  <div className="mt-4 text-white text-lg font-bold">10 points Solisport = 5 € de remise</div>
                 </div>
               </div>
             </div>
