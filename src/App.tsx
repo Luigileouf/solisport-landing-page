@@ -652,7 +652,16 @@ export default function App() {
                 <div className="rounded-[28px] bg-white/5 border border-white/10 p-6">
                   <div className="text-white/60 text-sm uppercase tracking-[0.2em] mb-2">Points Solisport</div>
                   <div className="text-4xl font-bold">20 points</div>
-                  <div className="mt-3 text-white/65">10 points vendeur + 10 points acheteur</div>
+                  <div className="mt-5 grid grid-cols-2 gap-3">
+                    <div className="rounded-2xl bg-white/10 border border-white/15 p-4">
+                      <div className="text-white/55 text-xs font-bold uppercase tracking-[0.18em] mb-2">Vendeur</div>
+                      <div className="text-2xl font-bold text-white">10 points</div>
+                    </div>
+                    <div className="rounded-2xl bg-white/10 border border-white/15 p-4">
+                      <div className="text-white/55 text-xs font-bold uppercase tracking-[0.18em] mb-2">Acheteur</div>
+                      <div className="text-2xl font-bold text-white">10 points</div>
+                    </div>
+                  </div>
                 </div>
                 <div className="rounded-[28px] bg-[#FF6B35] text-white p-6">
                   <div className="text-white/75 text-sm uppercase tracking-[0.2em] mb-2">Avantage partenaire</div>
