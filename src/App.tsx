@@ -760,7 +760,7 @@ export default function App() {
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
             <div className="max-w-2xl">
               <h2 className="text-4xl font-bold mb-4">Ils nous font confiance</h2>
-              <p className="text-black/50">Découvrez les athlètes qui portent les valeurs de Solisport au quotidien.</p>
+              <p className="text-black/50">Découvrez les athlètes soutenus par Solisport.</p>
             </div>
           </div>
 
