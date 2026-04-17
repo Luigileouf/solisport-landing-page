@@ -585,7 +585,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* Don = Cadeau Section */}
+      {/* Points Rewards Section */}
       <section className="py-32 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-12 items-start">
@@ -594,17 +594,17 @@ export default function App() {
                 Sur Solisport
               </div>
               <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">
-                Un don = un cadeau
+                Plus vous utilisez Solisport, plus vous gagnez
               </h2>
               <div className="space-y-4 text-lg text-black/60 leading-relaxed max-w-2xl">
                 <p>
-                  Avec Solisport, une vente sur une plateforme de seconde main comme Vinted, Le Bon Coin... peut aussi générer un don.
+                  Avec Solisport, chaque action utile génère des points.
                 </p>
                 <p>
-                  Ce don est transformé en points Solisport pour le vendeur et pour l’acheteur.
+                  Certifier un objet, vendre pour quelqu’un, accompagner un vendeur novice ou générer un don après une vente : plus vous utilisez Solisport, plus vous cumulez d’avantages.
                 </p>
                 <p>
-                  Ces points permettent d’obtenir des réductions, des cadeaux ou des avantages chez les partenaires.
+                  Une fois validés, vos points sont crédités sur votre compte et peuvent être transformés en réductions, cadeaux ou offres proposées par les partenaires.
                 </p>
               </div>
 
@@ -612,13 +612,13 @@ export default function App() {
                 {[
                   {
                     step: "01",
-                    title: "Une vente déclenche un don",
-                    desc: "Une partie de la transaction peut soutenir un sportif accompagné par Solisport.",
+                    title: "Une action utile rapporte",
+                    desc: "Chaque utilisation de Solisport peut générer des points.",
                   },
                   {
                     step: "02",
-                    title: "Le don devient des points",
-                    desc: "Les points Solisport sont partagés entre vendeur et acheteur.",
+                    title: "Les points s’accumulent",
+                    desc: "Vos actions validées créditent votre compte Solisport.",
                   },
                   {
                     step: "03",
@@ -646,28 +646,27 @@ export default function App() {
               </div>
               <div className="space-y-4">
                 <div className="rounded-[28px] bg-white/5 border border-white/10 p-6">
-                  <div className="text-white/60 text-sm uppercase tracking-[0.2em] mb-2">Don</div>
-                  <div className="text-4xl font-bold">10 €</div>
-                </div>
-                <div className="rounded-[28px] bg-white/5 border border-white/10 p-6">
                   <div className="text-white/60 text-sm uppercase tracking-[0.2em] mb-2">Points Solisport</div>
-                  <div className="text-4xl font-bold">20 points</div>
-                  <div className="mt-5 grid grid-cols-2 gap-3">
-                    <div className="rounded-2xl bg-white/10 border border-white/15 p-4">
-                      <div className="text-white/55 text-xs font-bold uppercase tracking-[0.18em] mb-2">Vendeur</div>
-                      <div className="text-2xl font-bold text-white">10 points</div>
-                    </div>
-                    <div className="rounded-2xl bg-white/10 border border-white/15 p-4">
-                      <div className="text-white/55 text-xs font-bold uppercase tracking-[0.18em] mb-2">Acheteur</div>
-                      <div className="text-2xl font-bold text-white">10 points</div>
-                    </div>
+                  <div className="text-4xl font-bold">70 points Solisport</div>
+                  <div className="mt-5 space-y-3">
+                    {[
+                      "20 points objet certifié",
+                      "30 points vente pour un proche",
+                      "15 points accompagnement vendeur novice",
+                      "5 points don généré",
+                    ].map((item) => (
+                      <div
+                        key={item}
+                        className="flex items-center justify-between gap-4 rounded-2xl bg-white/10 border border-white/15 px-4 py-3"
+                      >
+                        <span className="text-white/75 text-sm">{item}</span>
+                      </div>
+                    ))}
                   </div>
                 </div>
                 <div className="rounded-[28px] bg-[#FF6B35] text-white p-6">
                   <div className="text-white/75 text-sm uppercase tracking-[0.2em] mb-2">Avantage partenaire</div>
-                  <div className="text-3xl font-bold">5 € de remise</div>
-                  <div className="mt-3 text-white/85">sur la billetterie Fnac</div>
-                  <div className="mt-4 text-white text-lg font-bold">10 points Solisport = 5 € de remise</div>
+                  <div className="text-3xl font-bold">Réductions, cadeaux ou offres exclusives</div>
                 </div>
               </div>
             </div>
