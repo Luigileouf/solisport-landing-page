@@ -21,6 +21,11 @@ import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 import solisportLogo from './assets/solisport-logo.png';
 
+const MVP_UTM = 'utm_source=google_ads&utm_medium=landing&utm_campaign=ld_acquisition';
+const MVP_SPORTIFS_URL = `https://www.solisport.fr/sportifs?${MVP_UTM}&utm_content=sportifs`;
+const MVP_MODELE_URL = `https://www.solisport.fr/modele-economique?${MVP_UTM}&utm_content=modele`;
+const MVP_OPTION_CONFIANCE_URL = `https://www.solisport.fr/option-confiance?${MVP_UTM}&utm_content=option_confiance`;
+
 function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
@@ -40,21 +45,25 @@ function SiteHeader({ isLegalPage = false }: { isLegalPage?: boolean }) {
   return (
     <nav className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-black/5">
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-        <a href="/" className="flex items-center gap-3">
+        <a href="/" className="flex items-center gap-3 min-w-0">
           <SolisportLogo className="w-12 h-12" />
-          <span className="text-xl font-bold tracking-tight">Solisport</span>
+          <span className="flex min-w-0 flex-col">
+            <span className="text-xl font-bold tracking-tight leading-none">Solisport</span>
+            <span className="hidden sm:block text-[11px] font-semibold text-black/45 leading-tight tracking-wide">
+              Objets vendus, Athlètes soutenus
+            </span>
+          </span>
         </a>
         <div className="hidden md:flex items-center gap-8 text-sm font-medium text-black/60">
-          <a href={`${prefix}#concept`} className="hover:text-[#FF6B35] transition-colors">Concept</a>
-          <a href={`${prefix}#arguments`} className="hover:text-[#FF6B35] transition-colors">Avantages</a>
-          <a href={`${prefix}#mission`} className="hover:text-[#FF6B35] transition-colors">Notre Mission</a>
-          <a href={`${prefix}#athletes`} className="hover:text-[#FF6B35] transition-colors">Sportifs haut niveau</a>
+          <a href={`${prefix}#arguments`} className="hover:text-[#FF6B35] transition-colors">Fonctionnement</a>
+          <a href={MVP_SPORTIFS_URL} className="hover:text-[#FF6B35] transition-colors">Sportifs</a>
+          <a href={MVP_MODELE_URL} className="hover:text-[#FF6B35] transition-colors">Modèle</a>
         </div>
         <a
           href={isLegalPage ? '/#join' : '#join'}
           className="bg-black text-white px-6 py-2.5 rounded-full text-sm font-semibold hover:bg-[#FF6B35] transition-all duration-300 shadow-lg shadow-black/5"
         >
-          Rejoindre
+          Être informé
         </a>
       </div>
     </nav>
@@ -402,7 +411,7 @@ export default function App() {
         source: 'solisport-landing-page',
         submitted_at: new Date().toISOString(),
         interest_goal:
-          'Confirmer linteret des vendeurs de seconde main pour la proposition de valeur Solisport',
+          'Confirmer linteret Google Ads pour la landing Solisport et le lancement du MVP',
       });
       setStatus('success');
       setEmail('');
@@ -437,17 +446,38 @@ export default function App() {
           >
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FF6B35]/10 text-[#FF6B35] text-xs font-bold uppercase tracking-wider mb-6">
               <Trophy size={14} />
-              Le sport de haut niveau a besoin de vous
+              Pré lancement
             </div>
             <h1 className="text-6xl md:text-7xl font-bold leading-[0.95] tracking-tighter mb-8">
-              Vendez mieux. <br />
-              <span className="text-[#FF6B35]">Soutenez plus.</span>
+              Solisport la seconde main solidaire avec le sport de haut niveau
             </h1>
             <p className="text-xl text-black/60 max-w-lg mb-10 leading-relaxed">
-              Solisport aide les vendeurs de seconde main à maximiser leurs revenus pour financer les rêves des sportifs de haut niveau peu médiatisés.
+              Aider les vendeurs de seconde main à vendre mieux et plus pour soutenir les sportifs de haut niveau peu médiatisés.
             </p>
+
+            <div className="flex flex-col sm:flex-row gap-3 mb-10">
+              <a
+                href={MVP_SPORTIFS_URL}
+                className="inline-flex items-center justify-center gap-2 bg-[#FF6B35] text-white px-6 py-4 rounded-2xl font-bold hover:scale-[1.02] active:scale-[0.98] transition-all shadow-xl shadow-[#FF6B35]/20"
+              >
+                Découvrir les sportifs
+                <ArrowRight size={18} />
+              </a>
+              <a
+                href="#join"
+                className="inline-flex items-center justify-center gap-2 bg-black text-white px-6 py-4 rounded-2xl font-bold hover:bg-[#FF6B35] transition-all"
+              >
+                Être informé du lancement
+              </a>
+            </div>
             
             <form onSubmit={handleSubmit} className="space-y-6 max-w-md">
+              <div>
+                <div className="text-sm font-bold uppercase tracking-[0.18em] text-black/40 mb-2">Votre profil</div>
+                <p className="text-sm text-black/55">
+                  Aidez-nous à mesurer l’intérêt autour du lancement Solisport.
+                </p>
+              </div>
               <div className="space-y-3">
                 <label className="flex items-start gap-3 cursor-pointer group">
                   <input 
@@ -458,7 +488,7 @@ export default function App() {
                     className="mt-1 w-5 h-5 accent-[#FF6B35]"
                   />
                   <span className="text-sm text-black/70 group-hover:text-black transition-colors">
-                    Je suis vendeur de seconde main sur une plateforme comme Vinted, Le Bon Coin....
+                    Je vends déjà sur une plateforme comme Vinted ou Le Bon Coin.
                   </span>
                 </label>
                 <label className="flex items-start gap-3 cursor-pointer group">
@@ -470,7 +500,7 @@ export default function App() {
                     className="mt-1 w-5 h-5 accent-[#FF6B35]"
                   />
                   <span className="text-sm text-black/70 group-hover:text-black transition-colors">
-                    Je ne suis pas vendeur de seconde main sur une plateforme comme Vinted, Le Bon Coin...
+                    Je ne vends pas encore sur une plateforme de seconde main.
                   </span>
                 </label>
               </div>
@@ -492,7 +522,7 @@ export default function App() {
                   disabled={status === 'loading' || isSeller === null}
                   className="bg-[#FF6B35] text-white px-8 py-4 rounded-2xl font-bold hover:scale-[1.02] active:scale-[0.98] transition-all disabled:opacity-50 shadow-xl shadow-[#FF6B35]/20 flex items-center justify-center gap-2"
                 >
-                  {status === 'loading' ? 'Envoi...' : 'Rejoindre la liste'}
+                  {status === 'loading' ? 'Envoi...' : 'Être informé'}
                   <ArrowRight size={18} />
                 </button>
               </div>
@@ -506,7 +536,7 @@ export default function App() {
                   exit={{ opacity: 0 }}
                   className="mt-4 text-emerald-600 font-medium flex items-center gap-2"
                 >
-                  <CheckCircle2 size={18} /> L'equipe de Solisport vous remercie. Nous avons bien recu votre email :)
+                  <CheckCircle2 size={18} /> L’équipe de Solisport vous remercie. Nous avons bien reçu votre email.
                 </motion.p>
               )}
               {status === 'error' && (
@@ -538,7 +568,7 @@ export default function App() {
             </div>
             <div className="absolute -bottom-10 -left-10 bg-white p-6 rounded-3xl shadow-2xl border border-black/5 max-w-sm -rotate-3">
               <p className="text-base text-black/70 italic leading-relaxed">
-                "Grâce à Solisport, j'ai pu financer mon prochain stage de préparation de haut niveau en équipe de France."
+                "Découvrez les premiers profils et le fonctionnement prévu avant l’ouverture complète des dons, paiements et points."
               </p>
             </div>
           </motion.div>
@@ -550,7 +580,21 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center max-w-3xl mx-auto mb-20">
             <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">Pourquoi choisir Solisport ?</h2>
-            <p className="text-lg text-black/50">Et si chaque vente de seconde main pouvait aider un sportif de haut niveau ?</p>
+            <p className="text-lg text-black/50">
+              Et si chaque vente de seconde main pouvait aider un sportif de haut niveau peu médiatisé ?
+            </p>
+            <div className="mt-5 inline-flex items-center rounded-full bg-[#FF6B35]/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.2em] text-[#FF6B35]">
+              Bientôt disponible
+            </div>
+            <div className="mt-5">
+              <a
+                href="#join"
+                className="inline-flex items-center justify-center gap-2 rounded-2xl bg-black px-6 py-3 text-sm font-bold text-white transition-all hover:bg-[#FF6B35]"
+              >
+                Inscription pré-lancement
+                <ArrowRight size={16} />
+              </a>
+            </div>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -590,21 +634,30 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-12 items-start">
             <div>
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#FF6B35]/10 text-[#FF6B35] text-xs font-bold uppercase tracking-[0.2em] mb-6">
-                Sur Solisport
+              <div className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center">
+                <div className="inline-flex items-center gap-2 rounded-full bg-[#FF6B35]/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.2em] text-[#FF6B35]">
+                  Bientôt disponible
+                </div>
+                <a
+                  href="#join"
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-black px-5 py-2.5 text-xs font-bold text-white transition-all hover:bg-[#FF6B35]"
+                >
+                  Je crée mon compte Solisport en pré lancement
+                  <ArrowRight size={14} />
+                </a>
               </div>
               <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">
-                Plus vous utilisez Solisport, plus vous gagnez
+                Les points Solisport
               </h2>
               <div className="space-y-4 text-lg text-black/60 leading-relaxed max-w-2xl">
                 <p>
-                  Avec Solisport, chaque action utile génère des points.
+                  Solisport proposera un système de points.
                 </p>
                 <p>
-                  Certifier un objet, vendre pour quelqu’un, accompagner un vendeur novice ou générer un don après une vente : plus vous utilisez Solisport, plus vous cumulez d’avantages.
+                  Certifier un objet, vendre pour quelqu’un, accompagner un vendeur novice ou générer un don après une vente vous récompenseront.
                 </p>
                 <p>
-                  Une fois validés, vos points sont crédités sur votre compte et peuvent être transformés en réductions, cadeaux ou offres proposées par les partenaires.
+                  Les points seront échangeables par des avantages et cadeaux auprès des partenaires Solisport.
                 </p>
               </div>
 
@@ -612,18 +665,18 @@ export default function App() {
                 {[
                   {
                     step: "01",
-                    title: "Une action utile rapporte",
-                    desc: "Chaque utilisation de Solisport peut générer des points.",
+                    title: "Chaque action Solisport rapportera",
+                    desc: "Chaque usage validé de Solisport générera des points.",
                   },
                   {
                     step: "02",
-                    title: "Les points s’accumulent",
-                    desc: "Vos actions validées créditent votre compte Solisport.",
+                    title: "Les points s’accumuleront",
+                    desc: "Les actions validées créditeront votre compte Solisport.",
                   },
                   {
                     step: "03",
-                    title: "Les points deviennent un avantage",
-                    desc: "Réductions, cadeaux ou bénéfices concrets chez les partenaires.",
+                    title: "Les points deviendront un avantage",
+                    desc: "Réductions, cadeaux ou offres exclusives proposés par les partenaires.",
                   },
                 ].map((item) => (
                   <div
@@ -642,12 +695,13 @@ export default function App() {
 
             <div className="rounded-[36px] bg-[#111111] text-white p-8 md:p-10 shadow-2xl shadow-black/10">
               <div className="text-[#FF6B35] font-bold text-sm uppercase tracking-[0.25em] mb-4">
-                Exemple
+                Exemple prévu
               </div>
               <div className="space-y-4">
                 <div className="rounded-[28px] bg-white/5 border border-white/10 p-6">
                   <div className="text-white/60 text-sm uppercase tracking-[0.2em] mb-2">Points Solisport</div>
                   <div className="text-4xl font-bold">70 points Solisport</div>
+                  <div className="mt-2 text-white/55 text-sm">Simulation de fonctionnement</div>
                   <div className="mt-5 space-y-3">
                     {[
                       "20 points objet certifié",
@@ -667,6 +721,7 @@ export default function App() {
                 <div className="rounded-[28px] bg-[#FF6B35] text-white p-6">
                   <div className="text-white/75 text-sm uppercase tracking-[0.2em] mb-2">Avantage partenaire</div>
                   <div className="text-3xl font-bold">Réductions, cadeaux ou offres exclusives</div>
+                  <div className="mt-3 text-white/85">Bénéfices prévus avec les futurs partenaires.</div>
                 </div>
               </div>
             </div>
@@ -685,7 +740,7 @@ export default function App() {
             <div>
               <h2 className="text-5xl md:text-6xl font-bold leading-tight mb-8">
                 Le sport de haut niveau <br />
-                <span className="text-[#FF6B35]">mérite plus de soutien.</span>
+                <span className="text-[#FF6B35]">mérite votre soutien.</span>
               </h2>
               <div className="space-y-8">
                 <div className="flex gap-6">
@@ -708,7 +763,7 @@ export default function App() {
                     <h4 className="text-xl font-bold mb-2">Valeur</h4>
                     <p className="text-white/50">
                       Solisport défend une vision solidaire du sport. En tant qu’entreprise à mission relevant de l’économie sociale
-                      et solidaire, la plateforme reverse 70 % des revenus générés aux sportifs qu’elle accompagne.
+                      et solidaire, le modèle prévoit de reverser 70 % des revenus générés aux sportifs accompagnés.
                     </p>
                   </div>
                 </div>
@@ -730,7 +785,7 @@ export default function App() {
             <div className="bg-white/5 backdrop-blur-xl p-8 rounded-[40px] border border-white/10">
               <div className="text-center mb-10">
                 <div className="text-[#FF6B35] font-bold text-sm uppercase tracking-widest mb-2">Notre engagement</div>
-                <div className="text-4xl font-bold">70 % des revenus générés reversés aux sportifs accompagnés</div>
+                <div className="text-4xl font-bold">Objectif : reverser 70 % des revenus générés aux sportifs accompagnés</div>
               </div>
               <div className="space-y-4">
                 <div className="flex justify-between items-center p-4 rounded-2xl bg-white/5 border border-white/5">
@@ -761,6 +816,13 @@ export default function App() {
               <h2 className="text-4xl font-bold mb-4">Ils nous font confiance</h2>
               <p className="text-black/50">Découvrez les athlètes soutenus par Solisport.</p>
             </div>
+            <a
+              href={MVP_SPORTIFS_URL}
+              className="inline-flex items-center justify-center gap-2 bg-black text-white px-6 py-4 rounded-2xl font-bold hover:bg-[#FF6B35] transition-all"
+            >
+              Voir les sportifs sur le MVP
+              <ArrowRight size={18} />
+            </a>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -844,9 +906,9 @@ export default function App() {
           </div>
           
           <div className="relative z-10">
-            <h2 className="text-4xl md:text-6xl font-bold mb-8 leading-tight">Prêt à changer la donne ?</h2>
+            <h2 className="text-4xl md:text-6xl font-bold mb-8 leading-tight">Être informé du lancement</h2>
             <p className="text-xl text-white/80 mb-12 max-w-2xl mx-auto">
-              Rejoignez la communauté Solisport et transformez vos ventes de seconde main en victoires sportives.
+              Les dons, paiements et points seront bientôt disponibles. Laissez votre email pour suivre l’ouverture de Solisport et accéder au MVP.
             </p>
             
             <form onSubmit={handleSubmit} className="space-y-6 max-w-lg mx-auto">
@@ -860,7 +922,7 @@ export default function App() {
                     className="mt-1 w-5 h-5 accent-white"
                   />
                   <span className="text-sm text-white/80 group-hover:text-white transition-colors">
-                    Je suis vendeur de seconde main sur une plateforme comme Vinted, Le Bon Coin....
+                    Je vends déjà sur une plateforme comme Vinted ou Le Bon Coin.
                   </span>
                 </label>
                 <label className="flex items-start gap-3 cursor-pointer group">
@@ -872,7 +934,7 @@ export default function App() {
                     className="mt-1 w-5 h-5 accent-white"
                   />
                   <span className="text-sm text-white/80 group-hover:text-white transition-colors">
-                    Je ne suis pas vendeur de seconde main sur une plateforme comme Vinted, Le Bon Coin...
+                    Je ne vends pas encore sur une plateforme de seconde main.
                   </span>
                 </label>
               </div>
@@ -891,10 +953,25 @@ export default function App() {
                   disabled={status === 'loading' || isSeller === null}
                   className="bg-black text-white px-10 py-5 rounded-2xl font-bold hover:bg-white hover:text-black transition-all disabled:opacity-50"
                 >
-                  C'est parti
+                  M’informer
                 </button>
               </div>
             </form>
+
+            <div className="mt-8 flex flex-col sm:flex-row justify-center gap-3">
+              <a
+                href={MVP_SPORTIFS_URL}
+                className="inline-flex items-center justify-center gap-2 rounded-2xl bg-white/15 px-6 py-3 font-bold text-white hover:bg-white hover:text-black transition-all"
+              >
+                Découvrir les sportifs
+              </a>
+              <a
+                href={MVP_MODELE_URL}
+                className="inline-flex items-center justify-center gap-2 rounded-2xl bg-white/15 px-6 py-3 font-bold text-white hover:bg-white hover:text-black transition-all"
+              >
+                Comprendre le modèle
+              </a>
+            </div>
 
             <AnimatePresence>
               {status === 'success' && (
@@ -904,7 +981,7 @@ export default function App() {
                   exit={{ opacity: 0 }}
                   className="mt-6 text-white font-medium flex items-center justify-center gap-2"
                 >
-                  <CheckCircle2 size={18} /> L'equipe de Solisport vous remercie. Nous avons bien recu votre email :)
+                  <CheckCircle2 size={18} /> L’équipe de Solisport vous remercie. Nous avons bien reçu votre email.
                 </motion.p>
               )}
               {status === 'error' && (
