@@ -834,7 +834,7 @@ export default function App() {
               href={MVP_SPORTIFS_URL}
               className="inline-flex items-center justify-center gap-2 bg-black text-white px-6 py-4 rounded-2xl font-bold hover:bg-[#FF6B35] transition-all"
             >
-              Voir les sportifs sur le MVP
+              Voir les sportifs sur la plateforme
               <ArrowRight size={18} />
             </a>
           </div>
