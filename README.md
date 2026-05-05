@@ -4,7 +4,7 @@
 
 # Solisport Landing Page
 
-Landing page React/Vite pour valider l'interet des vendeurs de seconde main pour la proposition de valeur Solisport.
+Landing page React/Vite pour valider l'interet des vendeurs de seconde main, en priorite les vendeurs d'articles de sport presents sur Vinted ou plateformes similaires, pour la proposition de valeur Solisport.
 
 ## Run Locally
 
@@ -75,7 +75,17 @@ VITE_GOOGLE_SHEET_WEBHOOK_URL=https://script.google.com/macros/s/AKfycbzqetTPKbm
 
 La landing page sert a valider cette hypothese :
 
-`Les vendeurs de seconde main sont interesses par une proposition de valeur Solisport et laissent leur email pour en savoir plus.`
+`Les vendeurs d'articles de sport de seconde main sont interesses par une proposition Solisport qui les aide a mieux valoriser leurs objets et laissent leur email pour rejoindre le test.`
+
+## Test acquisition Vinted
+
+Les livrables du test hors Ads sont disponibles dans `docs/` :
+
+- `docs/acquisition-vinted.md` : plan complet en 7 blocs, angles, canaux, KPI et relance opt-in.
+- `docs/contenus-organiques-vinted.md` : scripts TikTok/Reels, posts communautaires, message createur et reponses publiques.
+- `docs/utm-plan-vinted.csv` : liens UTM prets a decliner par canal.
+
+Principe important : le test n'automatise pas les messages sur Vinted. L'automatisation porte sur le tracking, la preparation des contenus, la collecte opt-in et le reporting.
 
 ## Deploiement Vercel
 

@@ -21,7 +21,7 @@ import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 import solisportLogo from './assets/solisport-logo.png';
 
-const MVP_UTM = 'utm_source=google_ads&utm_medium=landing&utm_campaign=ld_acquisition';
+const MVP_UTM = 'utm_source=vinted_organic&utm_medium=landing&utm_campaign=vinted_sellers_test';
 const MVP_SPORTIFS_URL = `https://www.solisport.fr/sportifs?${MVP_UTM}&utm_content=sportifs`;
 const MVP_MODELE_URL = `https://www.solisport.fr/modele-economique?${MVP_UTM}&utm_content=modele`;
 const MVP_OPTION_CONFIANCE_URL = `https://www.solisport.fr/option-confiance?${MVP_UTM}&utm_content=option_confiance`;
@@ -381,6 +381,20 @@ async function submitLeadToGoogleSheet(payload: LeadPayload) {
   await new Promise((resolve) => window.setTimeout(resolve, 400));
 }
 
+function getAcquisitionSource() {
+  if (typeof window === 'undefined') {
+    return 'solisport-vinted-sellers-test';
+  }
+
+  const params = new URLSearchParams(window.location.search);
+  const source = params.get('utm_source') || 'direct';
+  const medium = params.get('utm_medium') || 'landing';
+  const campaign = params.get('utm_campaign') || 'vinted_sellers_test';
+  const content = params.get('utm_content');
+
+  return [source, medium, campaign, content].filter(Boolean).join(' / ');
+}
+
 export default function App() {
   const pathname = typeof window !== 'undefined' ? window.location.pathname : '/';
   const isLegalPage = pathname === '/mentions-legales';
@@ -408,10 +422,10 @@ export default function App() {
       await submitLeadToGoogleSheet({
         email: email.trim(),
         uses_second_hand_platform: isSeller ? 'yes' : 'no',
-        source: 'solisport-landing-page',
+        source: getAcquisitionSource(),
         submitted_at: new Date().toISOString(),
         interest_goal:
-          'Confirmer linteret Google Ads pour la landing Solisport et le lancement du MVP',
+          'Tester linteret des vendeurs Vinted darticles de sport pour Solisport',
       });
       setStatus('success');
       setEmail('');
@@ -446,13 +460,13 @@ export default function App() {
           >
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FF6B35]/10 text-[#FF6B35] text-xs font-bold uppercase tracking-wider mb-6">
               <Trophy size={14} />
-              Pré lancement
+              Test vendeurs Vinted
             </div>
             <h1 className="text-6xl md:text-7xl font-bold leading-[0.95] tracking-tighter mb-8">
-              Solisport la seconde main solidaire avec le sport de haut niveau
+              Vendez mieux vos articles de sport de seconde main
             </h1>
             <p className="text-xl text-black/60 max-w-lg mb-10 leading-relaxed">
-              Aider les vendeurs de seconde main à vendre mieux et plus pour soutenir les sportifs de haut niveau peu médiatisés.
+              Solisport aide les vendeurs présents sur Vinted et les plateformes de seconde main à mieux valoriser leurs équipements sportifs, tout en soutenant des sportifs de haut niveau peu médiatisés.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 mb-10">
@@ -460,14 +474,14 @@ export default function App() {
                 href={MVP_SPORTIFS_URL}
                 className="inline-flex items-center justify-center gap-2 bg-[#FF6B35] text-white px-6 py-4 rounded-2xl font-bold hover:scale-[1.02] active:scale-[0.98] transition-all shadow-xl shadow-[#FF6B35]/20"
               >
-                Découvrir les sportifs
+                Voir les sportifs soutenus
                 <ArrowRight size={18} />
               </a>
               <a
                 href="#join"
                 className="inline-flex items-center justify-center gap-2 bg-black text-white px-6 py-4 rounded-2xl font-bold hover:bg-[#FF6B35] transition-all"
               >
-                Être informé du lancement
+                Estimer mon intérêt vendeur
               </a>
             </div>
             
@@ -475,7 +489,7 @@ export default function App() {
               <div>
                 <div className="text-sm font-bold uppercase tracking-[0.18em] text-black/40 mb-2">Votre profil</div>
                 <p className="text-sm text-black/55">
-                  Aidez-nous à mesurer l’intérêt autour du lancement Solisport.
+                  Aidez-nous à valider le besoin des vendeurs de seconde main spécialisés sport.
                 </p>
               </div>
               <div className="space-y-3">
@@ -488,7 +502,7 @@ export default function App() {
                     className="mt-1 w-5 h-5 accent-[#FF6B35]"
                   />
                   <span className="text-sm text-black/70 group-hover:text-black transition-colors">
-                    Je vends déjà sur une plateforme comme Vinted ou Le Bon Coin.
+                    Je vends déjà des articles de sport sur Vinted ou une plateforme similaire.
                   </span>
                 </label>
                 <label className="flex items-start gap-3 cursor-pointer group">
@@ -500,7 +514,7 @@ export default function App() {
                     className="mt-1 w-5 h-5 accent-[#FF6B35]"
                   />
                   <span className="text-sm text-black/70 group-hover:text-black transition-colors">
-                    Je ne vends pas encore sur une plateforme de seconde main.
+                    Je ne vends pas encore d’articles de sport en seconde main.
                   </span>
                 </label>
               </div>
@@ -522,7 +536,7 @@ export default function App() {
                   disabled={status === 'loading' || isSeller === null}
                   className="bg-[#FF6B35] text-white px-8 py-4 rounded-2xl font-bold hover:scale-[1.02] active:scale-[0.98] transition-all disabled:opacity-50 shadow-xl shadow-[#FF6B35]/20 flex items-center justify-center gap-2"
                 >
-                  {status === 'loading' ? 'Envoi...' : 'Être informé'}
+                  {status === 'loading' ? 'Envoi...' : 'Rejoindre le test'}
                   <ArrowRight size={18} />
                 </button>
               </div>
@@ -568,7 +582,7 @@ export default function App() {
             </div>
             <div className="absolute -bottom-10 -left-10 bg-white p-6 rounded-3xl shadow-2xl border border-black/5 max-w-sm -rotate-3">
               <p className="text-base text-black/70 italic leading-relaxed">
-                "Découvrez les premiers profils et le fonctionnement prévu avant l’ouverture complète des dons, paiements et points."
+                "Un test simple pour comprendre si les vendeurs Vinted veulent mieux vendre leurs équipements sportifs tout en créant un impact concret."
               </p>
             </div>
           </motion.div>
@@ -579,9 +593,9 @@ export default function App() {
       <section id="arguments" className="py-32 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center max-w-3xl mx-auto mb-20">
-            <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">Pourquoi choisir Solisport ?</h2>
+            <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">Pourquoi tester Solisport quand on vend sur Vinted ?</h2>
             <p className="text-lg text-black/50">
-              Et si chaque vente de seconde main pouvait aider un sportif de haut niveau peu médiatisé ?
+              Et si vos ventes d’articles de sport pouvaient être mieux valorisées, plus lisibles pour les acheteurs et utiles à des sportifs de haut niveau ?
             </p>
             <div className="mt-5 inline-flex items-center rounded-full bg-[#FF6B35]/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.2em] text-[#FF6B35]">
               Bientôt disponible
@@ -591,7 +605,7 @@ export default function App() {
                 href="#join"
                 className="inline-flex items-center justify-center gap-2 rounded-2xl bg-black px-6 py-3 text-sm font-bold text-white transition-all hover:bg-[#FF6B35]"
               >
-                Inscription pré-lancement
+                Rejoindre le test
                 <ArrowRight size={16} />
               </a>
             </div>
@@ -601,18 +615,18 @@ export default function App() {
             {[
               {
                 icon: <ShieldCheck className="text-[#FF6B35]" size={32} />,
-                title: "Garantir l’état de l’objet",
-                desc: "Fini les mauvaises surprises pour vos acheteurs. Notre option « Tiers de Confiance » vérifie l’état réel de chaque objet avant l’envoi."
+                title: "Inspirer plus confiance",
+                desc: "Mieux présenter l’état, l’usage et la valeur réelle de vos équipements sportifs pour réduire les hésitations côté acheteur."
               },
               {
                 icon: <TrendingUp className="text-[#FF6B35]" size={32} />,
-                title: "Gagner plus d’argent",
-                desc: "Nous vous mettons en relation avec des particuliers qui n’ont pas le temps de vendre leurs objets. Vendez pour eux et partagez les gains."
+                title: "Mieux valoriser vos articles",
+                desc: "Identifier les objets sportifs qui méritent une meilleure description, de meilleures photos ou un prix plus juste."
               },
               {
                 icon: <Zap className="text-[#FF6B35]" size={32} />,
-                title: "Vendre plus efficacement",
-                desc: "Apprenez aux autres. Nos vendeurs expérimentés accompagnent les novices pour booster leurs performances sur Vinted. Devenez coach pour des vendeurs novices."
+                title: "Créer un impact sportif",
+                desc: "Transformer une vente de seconde main en soutien concret pour des athlètes peu médiatisés."
               }
             ].map((item, i) => (
               <motion.div 
@@ -642,7 +656,7 @@ export default function App() {
                   href="#join"
                   className="inline-flex items-center justify-center gap-2 rounded-full bg-black px-5 py-2.5 text-xs font-bold text-white transition-all hover:bg-[#FF6B35]"
                 >
-                  Je crée mon compte Solisport en pré lancement
+                  Je rejoins le test vendeur
                   <ArrowRight size={14} />
                 </a>
               </div>
@@ -654,10 +668,10 @@ export default function App() {
                   Solisport proposera un système de points.
                 </p>
                 <p>
-                  Certifier un objet, vendre pour quelqu’un, accompagner un vendeur novice ou générer un don après une vente vous récompenseront.
+                  Certifier un équipement sportif, améliorer une annonce, accompagner un vendeur novice ou générer un don après une vente vous récompenseront.
                 </p>
                 <p>
-                  Les points seront échangeables par des avantages et cadeaux auprès des partenaires Solisport.
+                  Les points pourront être échangés contre des avantages et cadeaux auprès des partenaires Solisport.
                 </p>
               </div>
 
@@ -665,8 +679,8 @@ export default function App() {
                 {[
                   {
                     step: "01",
-                    title: "Chaque action Solisport rapportera",
-                    desc: "Chaque usage validé de Solisport générera des points.",
+                    title: "Chaque action utile rapportera",
+                    desc: "Annonce améliorée, objet certifié ou don généré pourront créer des points.",
                   },
                   {
                     step: "02",
@@ -704,8 +718,8 @@ export default function App() {
                   <div className="mt-2 text-white/55 text-sm">Simulation de fonctionnement</div>
                   <div className="mt-5 space-y-3">
                     {[
-                      "20 points objet certifié",
-                      "30 points vente pour un proche",
+                      "20 points équipement certifié",
+                      "30 points annonce sport optimisée",
                       "15 points accompagnement vendeur novice",
                       "5 points don généré",
                     ].map((item) => (
@@ -906,9 +920,9 @@ export default function App() {
           </div>
           
           <div className="relative z-10">
-            <h2 className="text-4xl md:text-6xl font-bold mb-8 leading-tight">Être informé du lancement</h2>
+            <h2 className="text-4xl md:text-6xl font-bold mb-8 leading-tight">Rejoindre le test vendeur Solisport</h2>
             <p className="text-xl text-white/80 mb-12 max-w-2xl mx-auto">
-              Les dons, paiements et points seront bientôt disponibles. Laissez votre email pour suivre l’ouverture de Solisport et accéder au MVP.
+              Vous vendez ou envisagez de vendre des articles de sport sur Vinted ? Laissez votre email pour participer au test et découvrir le MVP.
             </p>
             
             <form onSubmit={handleSubmit} className="space-y-6 max-w-lg mx-auto">
@@ -922,7 +936,7 @@ export default function App() {
                     className="mt-1 w-5 h-5 accent-white"
                   />
                   <span className="text-sm text-white/80 group-hover:text-white transition-colors">
-                    Je vends déjà sur une plateforme comme Vinted ou Le Bon Coin.
+                    Je vends déjà des articles de sport sur Vinted ou une plateforme similaire.
                   </span>
                 </label>
                 <label className="flex items-start gap-3 cursor-pointer group">
@@ -934,7 +948,7 @@ export default function App() {
                     className="mt-1 w-5 h-5 accent-white"
                   />
                   <span className="text-sm text-white/80 group-hover:text-white transition-colors">
-                    Je ne vends pas encore sur une plateforme de seconde main.
+                    Je ne vends pas encore d’articles de sport en seconde main.
                   </span>
                 </label>
               </div>
@@ -953,7 +967,7 @@ export default function App() {
                   disabled={status === 'loading' || isSeller === null}
                   className="bg-black text-white px-10 py-5 rounded-2xl font-bold hover:bg-white hover:text-black transition-all disabled:opacity-50"
                 >
-                  M’informer
+                  Rejoindre
                 </button>
               </div>
             </form>
@@ -972,6 +986,9 @@ export default function App() {
                 Comprendre le modèle
               </a>
             </div>
+            <p className="mt-6 text-xs text-white/55">
+              Solisport est un projet indépendant et n’est pas affilié à Vinted.
+            </p>
 
             <AnimatePresence>
               {status === 'success' && (
