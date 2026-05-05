@@ -920,9 +920,9 @@ export default function App() {
           </div>
           
           <div className="relative z-10">
-            <h2 className="text-4xl md:text-6xl font-bold mb-8 leading-tight">Rejoindre le test vendeur Solisport</h2>
+            <h2 className="text-4xl md:text-6xl font-bold mb-8 leading-tight">Rejoindre les vendeurs Solisport</h2>
             <p className="text-xl text-white/80 mb-12 max-w-2xl mx-auto">
-              Vous vendez ou envisagez de vendre des articles de sport sur Vinted ? Laissez votre email pour participer au test et découvrir le MVP.
+              Vous vendez ou envisagez de vendre des articles de sport sur Vinted ? Laissez votre email pour rejoindre le mouvement Solisport et découvrir la plateforme.
             </p>
             
             <form onSubmit={handleSubmit} className="space-y-6 max-w-lg mx-auto">
